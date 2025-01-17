@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Blue Bay GMT",
+    "price": 120,
+    "image": "../src/assets/product1.png"
+  },
+  {
+    "id": 2,
+    "name": "Chrono 44",
+    "price": 80,
+    "image": "../src/assets/product2.png"
+  },
+  {
+    "id": 3,
+    "name": "Daytona",
+    "price": 300,
+    "image": "../src/assets/product3.png"
+  },
+  {
+    "id": 4,
+    "name": "Diver Chronomat",
+    "price": 150,
+    "image": "../src/assets/product4.png"
+  },
+  {
+    "id": 5,
+    "name": "Navitimer",
+    "price": 150,
+    "image": "../src/assets/product5.png"
+  },
+  {
+    "id": 6,
+    "name": "Sol Analog",
+    "price": 150,
+    "image": "../src/assets/product6.png"
+  }
+]
