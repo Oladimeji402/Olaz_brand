@@ -19,45 +19,63 @@
 </template>
 
 <script>
-import { useCartStore } from '@/stores/cart' // Import Pinia store
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import { useCartStore } from "@/stores/cart"; // Import Pinia store
+import Swal from "sweetalert2"; // Import SweetAlert2
 
 export default {
-  name: 'ProductList',
+  name: "ProductList",
   data() {
     return {
       products: [], // Array for products
-    }
+    };
   },
   methods: {
     async fetchProducts() {
       try {
-        const response = await fetch('/product.json')
-        this.products = await response.json()
+        const response = await fetch("/product.json");
+        this.products = await response.json();
       } catch (error) {
-        console.error('Error fetching products:', error.message)
-        Swal.fire('Oops!', 'Failed to fetch products. Please try again later.', 'error')
+        console.error("Error fetching products:", error.message);
+        Swal.fire("Oops!", "Failed to fetch products. Please try again later.", "error");
       }
     },
     addToCart(product) {
-      const cartStore = useCartStore() // Access the Pinia store
-      cartStore.addProductToCart(product) // Call the action to add product to cart
+      const cartStore = useCartStore(); // Access the Pinia store
       Swal.fire({
-        title: 'Added to Cart!',
-        text: `${product.name} has been added to your cart.`,
-        icon: 'success',
-        confirmButtonText: 'OK',
-      })
+        title: "Add to Cart",
+        html: `
+          <p><strong>${product.name}</strong></p>
+          <p>Price: $${product.price}</p>
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" class="swal2-input" min="1" value="1">
+        `,
+        showCancelButton: true,
+        confirmButtonText: "Add to Cart",
+        preConfirm: () => {
+          const quantity = parseInt(document.getElementById("quantity").value, 10);
+          if (!quantity || quantity <= 0) {
+            Swal.showValidationMessage("Please enter a valid quantity.");
+          }
+          return quantity;
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const quantity = result.value;
+          cartStore.addProductToCart({ ...product, quantity });
+          Swal.fire(
+            "Added to Cart!",
+            `${quantity} of ${product.name} has been added to your cart.`,
+            "success"
+          );
+        }
+      });
     },
   },
   created() {
-    this.fetchProducts()
+    this.fetchProducts();
   },
-}
+};
 </script>
-
-
-
 
 <style scoped>
 .container {

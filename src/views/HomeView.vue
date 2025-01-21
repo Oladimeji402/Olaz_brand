@@ -19,18 +19,28 @@
   <div>
     <nextVue />
   </div>
+  <div>
+    <next1Vue />
+  </div>
+  <div>
+    <sectionVue />
+  </div>
 </template>
 
 <script>
 import listVue from '../components/listVue.vue'
 import ProductList from '../components/productList.vue'
 import nextVue from '../components/nextVue.vue'
+import next1Vue from '../components/ProductVue.vue'
+import sectionVue from '../components/sectionVue.vue'
 export default {
   name: 'HomeView',
   components: {
     listVue,
     ProductList,
     nextVue,
+    next1Vue,
+    sectionVue
   }
 }
 </script>
