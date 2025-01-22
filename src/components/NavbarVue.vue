@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="navbar d-flex justify-content-between align-items-center p-3 bg-light">
-      <img src="../assets/Logo.png" alt="Brand Logo" class="logo" />
+      <img src="/assets/Logo.png" alt="Brand Logo" class="logo" />
       <ul class="nav-links d-flex" :class="{ 'nav-active': isOpen }">
         <li><router-link to="/" class="nav-link" exact>Home</router-link></li>
         <li><router-link to="/product" class="nav-link">Shop Watch</router-link></li>

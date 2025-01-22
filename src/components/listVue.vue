@@ -3,17 +3,17 @@
     <div class="row">
       <div class="col-md-4 watch-item">
         <div class="img-container">
-          <img src="../assets/watch1.png" alt="Watch 1">
+          <img src="/assets/watch1.png" alt="Watch 1">
         </div>
       </div>
       <div class="col-md-4 watch-item">
         <div class="img-container">
-          <img src="../assets/watch2.png" alt="Watch 2">
+          <img src="/assets/watch2.png" alt="Watch 2">
         </div>
       </div>
       <div class="col-md-4 watch-item">
         <div class="img-container">
-          <img src="../assets/watch3.png" alt="Watch 3">
+          <img src="/assets/watch3.png" alt="Watch 3">
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@ img {
     .watch-list {
         padding: 2rem 1rem;
     }
-    
+
     .watch-item {
         margin-bottom: 2rem;
     }

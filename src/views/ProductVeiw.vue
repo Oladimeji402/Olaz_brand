@@ -9,7 +9,7 @@
         </p>
       </div>
       <div class="col-md-6">
-        <img src="../assets/hero3.png" alt="Shop Watch" class="hero-image" />
+        <img src="/assets/hero3.png" alt="Shop Watch" class="hero-image" />
       </div>
     </div>
 

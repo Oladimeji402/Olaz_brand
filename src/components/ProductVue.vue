@@ -13,7 +13,7 @@
       </div>
       </div>
       <div class="col-md-6">
-        <img src="../assets/asst.png" alt="" class="side-image ">
+        <img src="/assets/asst.png" alt="" class="side-image ">
       </div>
     </div>
   </div>

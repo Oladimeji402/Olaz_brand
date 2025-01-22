@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="col-md-5">
-          <img src="../assets/hero2.png" alt="" class="img-fluid" />
+          <img src="/assets/hero2.png" alt="" class="img-fluid" />
         </div>
         <div class="col-md-7">
           <div class="hero-text text-center">

@@ -7,7 +7,7 @@
       <router-link to="/shop" class="shop-btn">Shop now</router-link>
     </div>
     <div class="col-md-6 mt-3">
-      <img src="../assets/hero.png" alt="Hero" class="hero-image" />
+      <img src="/assets/hero.png" alt="Hero" class="hero-image" />
     </div>
   </div>
   <div>
