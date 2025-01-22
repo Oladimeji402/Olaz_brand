@@ -4,8 +4,9 @@
       <img src="../assets/Logo.png" alt="Brand Logo" class="logo" />
       <ul class="nav-links d-flex" :class="{ 'nav-active': isOpen }">
         <li><router-link to="/" class="nav-link" exact>Home</router-link></li>
-        <li><router-link to="/shop" class="nav-link">Shop Watch</router-link></li>
+        <li><router-link to="/product" class="nav-link">Shop Watch</router-link></li>
         <li><router-link to="/terms" class="nav-link">Terms and Conditions</router-link></li>
+        <li><router-link to="/admin" class="nav-link">Admin</router-link></li>
         <li><router-link to="/contact" class="nav-link">Contact</router-link></li>
       </ul>
       <div class="icons">

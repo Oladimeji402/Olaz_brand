@@ -11,6 +11,11 @@
             <h3 class="product-name">{{ product.name }}</h3>
             <p class="product-price">${{ product.price }}</p>
             <button @click="addToCart(product)" class="add-to-cart-btn">Add to Cart</button>
+            <!-- Edit and Delete Buttons -->
+            <div class="product-actions">
+              <button @click="editProduct(product)" class="btn btn-warning btn-sm">Edit</button>
+              <button @click="deleteProduct(product.id)" class="btn btn-danger btn-sm">Delete</button>
+            </div>
           </div>
         </div>
       </div>
@@ -32,8 +37,11 @@ export default {
   methods: {
     async fetchProducts() {
       try {
-        const response = await fetch("/product.json");
-        this.products = await response.json();
+        const response = await fetch("/product.json"); // Fetch product data from product.json
+        const allProducts = await response.json();
+
+        // Limit the products array to the first 6 products
+        this.products = allProducts.slice(0, 6); // <-- Change made here
       } catch (error) {
         console.error("Error fetching products:", error.message);
         Swal.fire("Oops!", "Failed to fetch products. Please try again later.", "error");
@@ -70,9 +78,47 @@ export default {
         }
       });
     },
+    editProduct(product) {
+      Swal.fire({
+        title: 'Edit Product',
+        html: `
+          <input type="text" id="editName" class="swal2-input" placeholder="Product Name" value="${product.name}">
+          <input type="number" id="editPrice" class="swal2-input" placeholder="Price" value="${product.price}">
+        `,
+        confirmButtonText: 'Save Changes',
+        preConfirm: () => {
+          const name = document.getElementById("editName").value;
+          const price = document.getElementById("editPrice").value;
+          if (!name || !price || price <= 0) {
+            Swal.showValidationMessage("Please enter valid values.");
+            return;
+          }
+          // Update the product (this is where you would send a request to update the product in your backend)
+          product.name = name;
+          product.price = price;
+          Swal.fire('Product Updated!', '', 'success');
+        },
+      });
+    },
+    deleteProduct(productId) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Simulate product deletion (this is where you would send a request to delete the product from the backend)
+          this.products = this.products.filter(product => product.id !== productId);
+          Swal.fire("Deleted!", "Your product has been deleted.", "success");
+        }
+      });
+    },
   },
   created() {
-    this.fetchProducts();
+    this.fetchProducts(); // Fetch products when the component is created
   },
 };
 </script>
@@ -161,6 +207,14 @@ export default {
   background-color: transparent;
   border-color: #25b86f;
   color: #25b86f;
+}
+
+.product-actions {
+  margin-top: 1rem;
+}
+
+.product-actions .btn {
+  margin-right: 5px;
 }
 
 @media (max-width: 768px) {
