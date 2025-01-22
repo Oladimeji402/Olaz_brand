@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import CartPage from '@/views/CartPage.vue'
+// import CartPage from '@/views/CartPage.vue'
 import ProductView from '../views/ProductVeiw.vue'
 import TermsAndConditions from '../views/TermsView.vue'
 import AdminView from '../views/AdminView.vue'
@@ -22,11 +22,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
     },
-    {
-      path: "/cart",
-      name: "CartPage",
-      component: CartPage,
-    },
+    // {
+    //   path: "/cart",
+    //   name: "CartPage",
+    //   component: CartPage,
+    // },
     {
       path: "/product",
       name: "ProductView",
